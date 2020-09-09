@@ -112,7 +112,7 @@ For Terra, 3 of the most useful keys are:
 1. terra-submission-id : this key is associated with a cromwell workflow execution
 2. cromwell-workflow-id : this key is associated with a job in a workflow, so if you apply a workflow to multiple inputs, you will have 1 terra id and multiple cromwell ids
 3. goog-dataproc-cluster-name : this key is associated with a jupyter notebook or Rstudio cluster on Terra. The user of these resources can be 
-determined using Bioconductor's `r Biocpkg("AnVIL")` package.
+determined using Bioconductor's `r BiocStyle::Biocpkg("AnVIL")` package.
 
 The code, to be used while the cluster
 is in use, would look like this:

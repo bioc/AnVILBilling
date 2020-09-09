@@ -1,3 +1,9 @@
+# AnVILBilling 0.0.12
+- pass CMD check and BiocCheck
+
+# AnVILBilling 0.0.11
+- removes browse_reck parameters, encapsulates authentication better
+
 # AnVILBilling 0.0.10
 - New parameter to browse_reck() that defaults to NOT running bq_auth explicitly.  Now
 	only one authentication per session is performed if do_auth is FALSE

@@ -94,7 +94,7 @@ browse_reck = function() runApp(list(ui=brec_ui, server=brec_server))
    output$bag = DT::renderDataTable({
       arec = NULL
       arec = getreck()
-      sk = as_tibble(AnVILBilling:::kvpivot(arec$sku))
+      sk = as_tibble(AnVILBilling:::kvpivot(arec$sku)) # ::: in case we runApp outside
       ss = split(arec$cost, sk$description)
       ans = sort(sapply(ss, sum), decreasing=TRUE) 
       ans = ans[ans>0]
