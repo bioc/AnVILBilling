@@ -1,7 +1,7 @@
 Package: AnVILBilling
 Title: AnVILBilling
 Date: 2020-09-30
-Version: 0.99.1
+Version: 0.99.2
 Authors@R: 
     c(person(given = "BJ",
            family = "Stubbs",
