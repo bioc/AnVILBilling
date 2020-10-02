@@ -1,16 +1,16 @@
 Package: AnVILBilling
 Title: AnVILBilling
 Date: 2020-09-30
-Version: 0.99.0
+Version: 0.99.1
 Authors@R: 
     c(person(given = "BJ",
            family = "Stubbs",
-           role = c("aut", "cre"),
+           role = c("aut"),
            email = "rebjh@channing.harvard.edu",
            ),
     person(given = "Vince",
            family = "Carey",
-           role = c("aut"),
+           role = c("aut", "cre"),
            email = "stvjc@channing.harvard.edu",
            ))
 Description: AnVILBilling helps monitor AnVIL related costs in R, using
