@@ -88,7 +88,7 @@ browse_reck = function() runApp(list(ui=brec_ui, server=brec_server))
     })
     getreck = reactive({
     shinytoastr::toastr_info("reckoning...", newestOnTop=TRUE)
-      AnVILBilling::reckon(getrequest())@reckoning
+      ab_reckoning(AnVILBilling::reckon(getrequest()))
       })
 
    output$bag = DT::renderDataTable({
@@ -171,7 +171,7 @@ oldbrowse_reck = function(bq_email=NA, do_auth=FALSE) {
     })
     getreck = reactive({
     shinytoastr::toastr_info("reckoning...", newestOnTop=TRUE)
-      AnVILBilling::reckon(getrequest())@reckoning
+      ab_reckoning(AnVILBilling::reckon(getrequest()))
       })
 
    output$bag = DT::renderDataTable({

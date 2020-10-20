@@ -1,5 +1,29 @@
 setOldClass("tbl_df")
 
+#' accessor for reckoning element
+#' @param x an instance of avReckoning
+#' @return a tibble with one row for each expense type by time slice
+#' @examples
+#' dim(ab_reckoning(demo_rec))
+#' @export
+ab_reckoning = function(x) x@reckoning
+
+# internal accessors
+#' @keywords internal
+ab_keys = function(x) x@keys
+#' @keywords internal
+ab_start = function(x) x@start
+#' @keywords internal
+ab_end = function(x) x@end
+#' @keywords internal
+ab_project = function(x) x@project
+#' @keywords internal
+ab_dataset = function(x) x@dataset
+#' @keywords internal
+ab_table = function(x)  x@table 
+#' @keywords internal
+ab_billing_code = function(x) x@billing_code
+
 setClass("avReckoningRequest", representation(start="ANY", # FIXME -- use POSIXct
   end="ANY", project="character", dataset="character", table="character",
    billing_code="character"))
@@ -9,16 +33,17 @@ setClass("avReckoning", contains="avReckoningRequest",
 
 setMethod("show", "avReckoningRequest", function(object) {
 cat("AnVIL reckoning info for project ", object@project, "\n")
-cat(sprintf("  starting %s, ending %s.\n", object@start, object@end))
+cat(sprintf("  starting %s, ending %s.\n", ab_start(object), 
+    ab_end(object)))
 })
 
 setMethod("show", "avReckoning", function(object) {
  callNextMethod()
- cat("There are ", nrow(object@reckoning), " records.\n")
+ cat("There are ", nrow(ab_reckoning(object)), " records.\n")
  cat("Available keys:\n")
- print(object@keys)
+ print(ab_keys(object))
  cat("---","\n")
- cat("Use obj@reckoning for full table [this will change...]\n")
+ cat("Use ab_reckoning() for full table\n")
 })
 
 #' set up request object
@@ -53,7 +78,8 @@ setup_billing_request = function(
 #' if (interactive()) reckon(demo_rec)
 #' @export
 reckon = function(obj) {
-  dat = getBilling(obj@start, obj@end, obj@project, obj@dataset, obj@table, obj@billing_code)
+  dat = getBilling(ab_start(obj), ab_end(obj),
+     ab_dataset(obj), ab_table(obj), ab_billing_code(obj))
   keys = getKeys(dat)
   new("avReckoning", obj, reckoning = dat, keys=keys)
 }
@@ -72,4 +98,4 @@ setGeneric("reckoning", function(x) standardGeneric("reckoning"))
 #' @examples
 #' if (interactive()) reckoning(reckon(demo_rec))
 #' @export
-setMethod("reckoning", "avReckoning", function(x) x@reckoning)
+setMethod("reckoning", "avReckoning", function(x) ab_reckoning(x))

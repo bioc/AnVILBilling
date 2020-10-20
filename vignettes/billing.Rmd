@@ -35,6 +35,21 @@ that looks like:
 
 ![Early view of reckoning app.](appshot1.png)
 
+# Installation
+
+Install the _AnVILBilling_ package with
+
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager", repos = "https://cran.r-project.org")
+BiocManager::install("AnVILBilling")
+```
+
+Once installed, load the package with
+
+```{r, message =FALSE, eval = TRUE, cache = FALSE}
+library(AnVILBilling)
+```
 
 
 
@@ -157,3 +172,9 @@ use user-specified inputs to identify an interval of days between which
 usage data are sought.  This function can be called with no arguments,
 or you can supply the email address for the Google identity to be used
 in working with Google Cloud Platform projects and BigQuery.
+
+# Session Information
+
+```{r getsin}
+sessionInfo()
+```
