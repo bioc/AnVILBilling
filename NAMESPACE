@@ -2,6 +2,7 @@
 
 export(ab_reckoning)
 export(browse_reck)
+export(getBilling)
 export(getValues)
 export(reckon)
 export(reckoning)

@@ -12,6 +12,14 @@
 #' @param page_size numeric(1) passed to dbConnect
 #' @return tbl_df
 #' @note On 21 August 2020 VJC changed condition on endDate to <=
+#' @examples
+#' if (interactive()) {
+#' getBilling(startDate="2020-08-01", 
+#'    endDate="2020-08-15", bqProject="bjbilling", 
+#'    bqTable="gcp_billing_export_v1_015E39_38569D_3CC771",  
+#'    bqDataset="anvilbilling", bqBilling_code="landmarkanvil2")
+#' }
+#' @export
 getBilling<-function(startDate,endDate,bqProject,bqDataset,bqTable,bqBilling_code,
               page_size=50000){
   con <- bigrquery::dbConnect(
