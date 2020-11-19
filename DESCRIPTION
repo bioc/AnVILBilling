@@ -1,7 +1,7 @@
 Package: AnVILBilling
 Title: Provide functions to retrieve and report on usage expenses in NHGRI AnVIL (anvilproject.org).
 Date: 2020-09-30
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: 
     c(person(given = "BJ",
            family = "Stubbs",
@@ -23,7 +23,7 @@ Description: AnVILBilling helps monitor AnVIL-related
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 4.0)
+Depends: R (>= 4.1)
 Imports: methods, DT, shiny, bigrquery, shinytoastr, DBI,
 	magrittr, dplyr, lubridate, plotly, ggplot2
 Suggests: 

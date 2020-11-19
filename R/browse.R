@@ -87,8 +87,17 @@ browse_reck = function() runApp(list(ui=brec_ui, server=brec_server))
         input$endd, input$bqproj, input$dataset, dbstuff$table, input$billing)
     })
     getreck = reactive({
-    shinytoastr::toastr_info("reckoning...", newestOnTop=TRUE)
-      ab_reckoning(AnVILBilling::reckon(getrequest()))
+     shinytoastr::toastr_info("reckoning...", newestOnTop=TRUE)
+      #ab_reckoning(AnVILBilling::reckon(getrequest())) ### Nov 19 2020: replace with higher-level function
+     dbstuff = getdb() 
+     getBilling(startDate = input$startd,
+               endDate = input$endd,
+               bqProject = input$bqproj,
+               bqDataset = input$dataset,
+               bqTable = dbstuff$table,
+               bqBilling_code = input$billing,
+               page_size=50000)
+
       })
 
    output$bag = DT::renderDataTable({
@@ -166,8 +175,8 @@ oldbrowse_reck = function(bq_email=NA, do_auth=FALSE) {
     })
    getrequest = reactive({
     dbstuff = getdb()
-    AnVILBilling::setup_billing_request(input$startd,
-        input$endd, input$bqproj, input$dataset, dbstuff$table, input$billing)
+    AnVILBilling::setup_billing_request(startDate=input$startd,
+        endDate=input$endd, input$bqproj, input$dataset, dbstuff$table, input$billing)
     })
     getreck = reactive({
     shinytoastr::toastr_info("reckoning...", newestOnTop=TRUE)
