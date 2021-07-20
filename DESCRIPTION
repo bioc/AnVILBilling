@@ -27,7 +27,7 @@ Depends: R (>= 4.1)
 Imports: methods, DT, shiny, bigrquery, shinytoastr, DBI,
 	magrittr, dplyr, lubridate, plotly, ggplot2
 Suggests: 
-    testthat, knitr, BiocStyle
+    testthat, knitr, BiocStyle, rmarkdown
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 biocViews: Infrastructure, Software
