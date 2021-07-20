@@ -2,7 +2,10 @@
 
 export(ab_reckoning)
 export(browse_reck)
+export(browse_reck2)
 export(getBilling)
+export(getSubmissionCost)
+export(getSubmissionRam)
 export(getValues)
 export(reckon)
 export(reckoning)

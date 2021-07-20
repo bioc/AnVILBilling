@@ -225,3 +225,11 @@ oldbrowse_reck = function(bq_email=NA, do_auth=FALSE) {
 }
 
 
+#' alternate app for AnVIL where htmlwidgets misbehaves
+#' @export
+browse_reck2 = function() {
+ curd = getwd()
+ on.exit(setwd(curd))
+ setwd(system.file("app2", package="AnVILBilling"))
+ shiny::runApp()
+}
